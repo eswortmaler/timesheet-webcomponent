@@ -146,6 +146,7 @@ export class LitTimesheet extends LitElement {
     console.log(`deleting entry ${uuid}`);
     this.entries.delete(uuid);
     if (!entry.valid) {
+      this.updateValidationStatus();
       await this.saveValidDitryEntries();
     }
     const db = await getDB();
